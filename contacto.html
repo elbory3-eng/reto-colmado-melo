@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto y pruebas del incidente | Colmado Melo 1 — Reiniciado</title>
+    <meta name="description" content="Contacta al Colmado Melo 1 en El Millón y revisa el expediente con las pruebas del incidente digital.">
+    <meta name="theme-color" content="#ff2e88">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Leaflet: librería del mapa (API de OpenStreetMap) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        try {
+            const t = localStorage.getItem("melo-tema");
+            document.documentElement.dataset.tema = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro");
+        } catch (e) { }
+    </script>
+</head>
+
+<body>
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="contenedor">
+            <a class="logo" href="index.html" id="logo" aria-label="Colmado Melo 1, inicio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="3" y="3" width="42" height="42" rx="9" style="fill:var(--mag);stroke:var(--line)" stroke-width="3" />
+                    <rect x="6" y="18" width="15" height="3" style="fill:var(--cyan)" />
+                    <rect x="27" y="30" width="13" height="3" style="fill:var(--yellow)" />
+                    <text x="24" y="31" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="18" fill="#fff">M1</text>
+                </svg>
+                <span>Colmado Melo 1 <small>REINICIADO</small></span>
+            </a>
+            <button class="boton-icono boton-menu" id="boton-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">☰</button>
+            <nav aria-label="Principal">
+                <ul class="menu" id="menu">
+                    <li><a href="index.html">Historia del misterio</a></li>
+                    <li><a href="servicios.html">Servicios reinventados</a></li>
+                    <li><a href="contacto.html" aria-current="page">Contacto y pruebas</a></li>
+                </ul>
+            </nav>
+            <button class="boton-icono" id="boton-tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">🌙</button>
+        </div>
+    </header>
+
+    <main id="contenido">
+
+        <section class="portada" aria-labelledby="titulo-contacto" style="padding-bottom:20px">
+            <div class="contenedor" style="grid-template-columns:1fr">
+                <div>
+                    <span class="etiqueta">Canal seguro · verificado</span>
+                    <h1 id="titulo-contacto"><span class="glitch" data-texto="Contacto">Contacto</span> <span class="resaltado">y pruebas</span></h1>
+                    <p class="lead">Escríbenos, encuéntranos en el mapa o revisa el expediente con todo lo que dejó el incidente. Si tienes una pista, también la queremos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Formulario + mapa ===== -->
+        <section class="seccion" aria-labelledby="titulo-escribenos" style="padding-top:20px">
+            <div class="contenedor dos-columnas">
+                <div>
+                    <h2 id="titulo-escribenos">Escríbenos</h2>
+                    <p>El mensaje se abre en WhatsApp ya escrito, listo para enviar al número oficial.</p>
+                    <form id="form-contacto" novalidate>
+                        <div class="campo">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" name="nombre" type="text" autocomplete="name" required minlength="2" aria-describedby="error-nombre">
+                            <p class="error-campo" id="error-nombre"></p>
+                        </div>
+                        <div class="campo">
+                            <label for="motivo">Motivo</label>
+                            <select id="motivo" name="motivo">
+                                <option>Hacer un pedido</option>
+                                <option>Preguntar un precio</option>
+                                <option>Reportar un perfil o página falsa</option>
+                                <option>Aportar una pista del incidente</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required minlength="10" aria-describedby="error-mensaje"></textarea>
+                            <p class="error-campo" id="error-mensaje"></p>
+                        </div>
+                        <button class="boton magenta" type="submit">Enviar por WhatsApp</button>
+                    </form>
+                </div>
+                <div>
+                    <h2>Dónde estamos</h2>
+                    <ul class="datos-contacto">
+                        <li>📍 Calle Biblioteca Nacional esq. Centro Olímpico, El Millón, Santo Domingo</li>
+                        <li>🕕 Todos los días, 6:00 a.m. – 11:00 p.m. · <strong id="estado-abierto">…</strong></li>
+                        <li>📞 <a href="tel:+18093630033">809-363-0033</a> · <a href="https://wa.me/18093630033" target="_blank" rel="noopener">WhatsApp</a></li>
+                    </ul>
+                    <div id="mapa" role="region" aria-label="Mapa con la ubicación del Colmado Melo 1"></div>
+                    <p class="mono" style="font-size:.8rem;margin-top:10px">
+                        <a href="https://www.openstreetmap.org/?mlat=18.4596&amp;mlon=-69.95386#map=18/18.4596/-69.95386" target="_blank" rel="noopener">Abrir en OpenStreetMap</a> ·
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=18.4596,-69.95386" target="_blank" rel="noopener">Cómo llegar</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Expediente: pruebas del incidente ===== -->
+        <section class="seccion alterna" id="expediente" aria-labelledby="titulo-expediente">
+            <div class="contenedor">
+                <header class="revelar">
+                    <h2 id="titulo-expediente">Expediente del incidente #404</h2>
+                    <p>Todo lo que encontramos. Publicado para que nuestros clientes sepan qué pasó y cómo nos protegimos.</p>
+                </header>
+                <div class="expediente">
+                    <article class="tarjeta evidencia revelar">
+                        <span class="sello">PRUEBA A</span>
+                        <h3>💾 El USB</h3>
+                        <p>USB genérico de 8 GB, sin marca. Contenía un único archivo de texto.</p>
+                        <pre class="registro">LEEME.txt  ·  142 bytes
+creado:  ??/??/????  23:47
+autor:   <span class="rojo">[desconocido]</span>
+sha256:  4f0d…e404</pre>
+                    </article>
+                    <article class="tarjeta evidencia revelar">
+                        <span class="sello">PRUEBA B</span>
+                        <h3>🖥️ Registro del servidor</h3>
+                        <p>Últimas líneas del registro antes de que todo se apagara.</p>
+                        <pre class="registro">23:46:58  login admin  <span class="verde">OK</span>
+23:47:01  rm -rf /colmado-melo  <span class="rojo">EJECUTADO</span>
+23:47:03  redes/instagram  <span class="rojo">ELIMINADO</span>
+23:47:05  mapa/ficha  <span class="rojo">ELIMINADO</span>
+23:47:09  conexión cerrada</pre>
+                    </article>
+                    <article class="tarjeta evidencia revelar">
+                        <span class="sello">PRUEBA C</span>
+                        <h3>🔍 Búsqueda en internet</h3>
+                        <p>Captura de lo que veían nuestros clientes a la mañana siguiente.</p>
+                        <pre class="registro">buscar: "colmado melo el millón"
+resultados: <span class="rojo">0</span>
+¿Quisiste decir: "colmado <span class="rojo">cerrado</span>"?</pre>
+                    </article>
+                    <article class="tarjeta evidencia revelar">
+                        <span class="sello">PRUEBA D</span>
+                        <h3>🧩 La pista</h3>
+                        <p>Al reverso del USB alguien rayó flechas con un clavo. No sabemos qué significan.</p>
+                        <details class="pista">
+                            <summary>Ver lo que estaba rayado</summary>
+                            <p class="mono" style="font-size:1.3rem;margin-top:10px">↑ ↑ ↓ ↓ ← → ← → B A</p>
+                            <p>Dicen que si escribes eso con el teclado en esta página… o si tocas el logo cinco veces… algo pasa.</p>
+                        </details>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="titulo-lecciones">
+            <div class="contenedor revelar">
+                <h2 id="titulo-lecciones">Lo que aprendimos</h2>
+                <div class="rejilla">
+                    <article class="tarjeta">
+                        <h3>1. Contraseñas de verdad</h3>
+                        <p>Todas las cuentas del colmado tienen ahora contraseñas largas y verificación en dos pasos.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <h3>2. Copias en dos lugares</h3>
+                        <p>La página vive en un repositorio con historial: si la borran, se restaura en minutos.</p>
+                    </article>
+                    <article class="tarjeta">
+                        <h3>3. Un solo canal oficial</h3>
+                        <p>Un número, una página. Lo que no salga de aquí, no somos nosotros.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div>
+                <p><strong>Colmado Melo 1</strong></p>
+                <p>Calle Biblioteca Nacional esq. Centro Olímpico, El Millón, Santo Domingo.</p>
+            </div>
+            <div>
+                <p><strong>Horario</strong></p>
+                <p>Todos los días, 6:00 a.m. – 11:00 p.m.</p>
+            </div>
+            <div>
+                <p><strong>Contacto</strong></p>
+                <p><a href="tel:+18093630033">809-363-0033</a> · <a href="https://wa.me/18093630033" target="_blank" rel="noopener">WhatsApp</a></p>
+            </div>
+            <p class="creditos">Reto "Hackeando el futuro de una pyme" · Programación 3, UASD · Jose Peña (DE0659) ·
+                <button class="enlace-boton" type="button" data-repetir-incidente>Ver el incidente otra vez</button>
+                · Mapa © colaboradores de OpenStreetMap
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/datos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contacto.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

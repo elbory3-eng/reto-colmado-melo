@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Servicios reinventados | Colmado Melo 1 — Reiniciado</title>
+    <meta name="description" content="Catálogo con precios de referencia, cotización en línea, delivery y verificador anti-estafas del Colmado Melo 1.">
+    <meta name="theme-color" content="#ff2e88">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+        try {
+            const t = localStorage.getItem("melo-tema");
+            document.documentElement.dataset.tema = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro");
+        } catch (e) { }
+    </script>
+</head>
+
+<body>
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+
+    <header class="cabecera">
+        <div class="contenedor">
+            <a class="logo" href="index.html" id="logo" aria-label="Colmado Melo 1, inicio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="3" y="3" width="42" height="42" rx="9" style="fill:var(--mag);stroke:var(--line)" stroke-width="3" />
+                    <rect x="6" y="18" width="15" height="3" style="fill:var(--cyan)" />
+                    <rect x="27" y="30" width="13" height="3" style="fill:var(--yellow)" />
+                    <text x="24" y="31" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="18" fill="#fff">M1</text>
+                </svg>
+                <span>Colmado Melo 1 <small>REINICIADO</small></span>
+            </a>
+            <button class="boton-icono boton-menu" id="boton-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">☰</button>
+            <nav aria-label="Principal">
+                <ul class="menu" id="menu">
+                    <li><a href="index.html">Historia del misterio</a></li>
+                    <li><a href="servicios.html" aria-current="page">Servicios reinventados</a></li>
+                    <li><a href="contacto.html">Contacto y pruebas</a></li>
+                </ul>
+            </nav>
+            <button class="boton-icono" id="boton-tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">🌙</button>
+        </div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- ===== Portada de servicios ===== -->
+        <section class="portada" aria-labelledby="titulo-servicios">
+            <div class="contenedor">
+                <div>
+                    <span class="etiqueta">Versión 2.0 · instalada</span>
+                    <h1 id="titulo-servicios"><span class="glitch" data-texto="Servicios">Servicios</span> <span class="resaltado">reinventados</span></h1>
+                    <p class="lead">El mismo colmado de siempre, con herramientas nuevas para que comprar sea más fácil y nadie pueda volver a desaparecernos.</p>
+                    <div class="acciones">
+                        <a class="boton" href="#catalogo">Cotizar mi compra →</a>
+                        <a class="boton secundario" href="#escudo">Verificar un contacto</a>
+                    </div>
+                </div>
+                <figure class="foto-recuperada">
+                    <img src="img/negocio-interior.jpg" alt="Interior del Colmado Melo 1 con estantes azules llenos de botellones de agua" width="663" height="1200">
+                    <figcaption><span>inventario.jpg</span><b>✔ EN LÍNEA</b></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== Servicios ===== -->
+        <section class="seccion alterna" aria-labelledby="titulo-lista-servicios">
+            <div class="contenedor">
+                <header class="revelar">
+                    <h2 id="titulo-lista-servicios">Lo que ofrecemos ahora</h2>
+                    <p>Abierto todos los días de 6:00 a.m. a 11:00 p.m.</p>
+                </header>
+                <div class="rejilla">
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">🛵</div>
+                        <h3>Delivery en El Millón</h3>
+                        <p>Pide desde tu casa y te lo llevamos. Envía tu cotización por WhatsApp y confirmamos el tiempo de entrega.</p>
+                    </article>
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">🍳</div>
+                        <h3>Desayuno y plato del día</h3>
+                        <p>Desayuno en las mañanas y plato del día todos los días. Pregúntale a Melo-Bot qué hay hoy.</p>
+                    </article>
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">🧮</div>
+                        <h3>Cotización en línea</h3>
+                        <p>Suma tu compra antes de salir de casa con precios de referencia actualizados por el colmado.</p>
+                    </article>
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">💧</div>
+                        <h3>Agua y víveres al día</h3>
+                        <p>Botellones, refrescos, lácteos, víveres, embutidos y limpieza: lo de todos los días, cerca de ti.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Catálogo y cotizador ===== -->
+        <section class="seccion" id="catalogo" aria-labelledby="titulo-catalogo">
+            <div class="contenedor">
+                <header>
+                    <h2 id="titulo-catalogo">Catálogo y cotizador</h2>
+                    <p>Elige productos y cantidades; el total se calcula al momento.</p>
+                </header>
+                <p class="aviso">Los precios son de referencia y pueden variar. El colmado confirma el precio final por WhatsApp antes de despachar.</p>
+
+                <div class="filtros" role="group" aria-label="Filtrar por categoría" id="filtros"></div>
+
+                <div class="layout-catalogo">
+                    <div class="rejilla" id="lista-productos" aria-live="polite">
+                        <noscript>
+                            <p>Activa JavaScript para usar el cotizador. Mientras tanto, escríbenos por <a href="https://wa.me/18093630033">WhatsApp</a> y te damos los precios.</p>
+                        </noscript>
+                    </div>
+
+                    <aside class="cotizacion" aria-labelledby="titulo-cotizacion">
+                        <h3 id="titulo-cotizacion">🧾 Tu cotización</h3>
+                        <ul id="lista-cotizacion">
+                            <li class="vacio">Todavía no has agregado productos.</li>
+                        </ul>
+                        <p class="total"><span>Total</span><output id="total-cotizacion" aria-live="polite">RD$ 0</output></p>
+                        <div class="campo">
+                            <label for="entrega">¿Cómo lo quieres?</label>
+                            <select id="entrega">
+                                <option value="Paso a buscarlo">Paso a buscarlo</option>
+                                <option value="Delivery">Delivery en El Millón</option>
+                            </select>
+                        </div>
+                        <button class="boton magenta" type="button" id="enviar-cotizacion" disabled>Enviar por WhatsApp</button>
+                        <button class="enlace-boton" type="button" id="vaciar-cotizacion" style="color:var(--mag);margin-top:12px">Vaciar cotización</button>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Escudo digital: verificador anti-estafas ===== -->
+        <section class="seccion alterna" id="escudo" aria-labelledby="titulo-escudo">
+            <div class="contenedor dos-columnas">
+                <div class="revelar">
+                    <h2 id="titulo-escudo">Escudo digital</h2>
+                    <p>Cuando un negocio desaparece de internet, aparecen impostores. Por eso estas son nuestras reglas a partir de ahora:</p>
+                    <ul>
+                        <li>Solo usamos <strong>un número</strong>: 809-363-0033.</li>
+                        <li>Nunca te pediremos pagos por adelantado a cuentas personales.</li>
+                        <li>Cualquier anuncio oficial aparece primero en esta página.</li>
+                        <li>La página se guarda en tu teléfono para que funcione aunque nos vuelvan a atacar.</li>
+                    </ul>
+                </div>
+                <div class="tarjeta verificador revelar">
+                    <h3>🛡️ Verificador oficial</h3>
+                    <p>¿Te escribieron diciendo ser el Colmado Melo 1? Pega el número o el enlace aquí.</p>
+                    <form id="form-verificar" novalidate>
+                        <label for="dato-verificar" class="mono" style="font-weight:400;width:100%;margin:0">Número o enlace</label>
+                        <input id="dato-verificar" name="dato" type="text" placeholder="Ej.: 809-363-0033" autocomplete="off" required>
+                        <button class="boton" type="submit">Verificar</button>
+                    </form>
+                    <div id="resultado-verificacion" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <div>
+                <p><strong>Colmado Melo 1</strong></p>
+                <p>Calle Biblioteca Nacional esq. Centro Olímpico, El Millón, Santo Domingo.</p>
+            </div>
+            <div>
+                <p><strong>Horario</strong></p>
+                <p>Todos los días, 6:00 a.m. – 11:00 p.m.</p>
+            </div>
+            <div>
+                <p><strong>Contacto</strong></p>
+                <p><a href="tel:+18093630033">809-363-0033</a> · <a href="https://wa.me/18093630033" target="_blank" rel="noopener">WhatsApp</a></p>
+            </div>
+            <p class="creditos">Reto "Hackeando el futuro de una pyme" · Programación 3, UASD · Jose Peña (DE0659) ·
+                <button class="enlace-boton" type="button" data-repetir-incidente>Ver el incidente otra vez</button>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/servicios.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

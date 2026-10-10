@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colmado Melo 1 | Reiniciado — Historia del misterio</title>
+    <meta name="description" content="Colmado Melo 1, El Millón: nos borraron de internet y volvimos más fuertes. Lee la historia del misterio.">
+    <meta name="theme-color" content="#ff2e88">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- Aplica el tema guardado antes de pintar la página (evita el parpadeo) -->
+    <script>
+        try {
+            const t = localStorage.getItem("melo-tema");
+            document.documentElement.dataset.tema = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro");
+        } catch (e) { }
+    </script>
+</head>
+
+<body>
+    <a class="salto" href="#contenido">Saltar al contenido</a>
+
+    <!-- ===== Pantalla de error inicial: se "recupera" con un clic ===== -->
+    <div class="pantalla-error" id="pantalla-error" role="dialog" aria-modal="true" aria-labelledby="titulo-error" hidden>
+        <div class="caja-error">
+            <p class="codigo-error glitch" data-texto="404" aria-hidden="true">404</p>
+            <h2 id="titulo-error">ERROR: NEGOCIO NO ENCONTRADO</h2>
+            <div class="consola" id="consola" aria-live="polite">
+                <p>&gt; buscando "Colmado Melo 1"... 0 resultados</p>
+                <p>&gt; redes_sociales.db ... <span style="color:#ff6aa8">BORRADO</span></p>
+                <p>&gt; pagina_web/index.html ... <span style="color:#ff6aa8">NO EXISTE</span></p>
+            </div>
+            <div class="barra" aria-hidden="true"><span id="barra-progreso"></span></div>
+            <button class="boton-restaurar" id="boton-restaurar" type="button">⚡ Restaurar sistema</button>
+        </div>
+    </div>
+
+    <!-- ===== Encabezado y navegación ===== -->
+    <header class="cabecera">
+        <div class="contenedor">
+            <a class="logo" href="index.html" id="logo" aria-label="Colmado Melo 1, inicio">
+                <svg viewBox="0 0 48 48" aria-hidden="true">
+                    <rect x="3" y="3" width="42" height="42" rx="9" style="fill:var(--mag);stroke:var(--line)" stroke-width="3" />
+                    <rect x="6" y="18" width="15" height="3" style="fill:var(--cyan)" />
+                    <rect x="27" y="30" width="13" height="3" style="fill:var(--yellow)" />
+                    <text x="24" y="31" text-anchor="middle" font-family="Space Mono, monospace" font-weight="700" font-size="18" fill="#fff">M1</text>
+                </svg>
+                <span>Colmado Melo 1 <small>REINICIADO</small></span>
+            </a>
+            <button class="boton-icono boton-menu" id="boton-menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">☰</button>
+            <nav aria-label="Principal">
+                <ul class="menu" id="menu">
+                    <li><a href="index.html" aria-current="page">Historia del misterio</a></li>
+                    <li><a href="servicios.html">Servicios reinventados</a></li>
+                    <li><a href="contacto.html">Contacto y pruebas</a></li>
+                </ul>
+            </nav>
+            <button class="boton-icono" id="boton-tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">🌙</button>
+        </div>
+    </header>
+
+    <div class="cinta" aria-hidden="true">
+        <p>
+            <b>SISTEMA RESTAURADO</b> ✦ Abierto todos los días 6:00 a.m. – 11:00 p.m. ✦ Delivery en El Millón ✦ WhatsApp 809-363-0033 ✦ <b>NOS BORRARON, VOLVIMOS</b> ✦ Desayuno y plato del día ✦
+            <b>SISTEMA RESTAURADO</b> ✦ Abierto todos los días 6:00 a.m. – 11:00 p.m. ✦ Delivery en El Millón ✦ WhatsApp 809-363-0033 ✦ <b>NOS BORRARON, VOLVIMOS</b> ✦ Desayuno y plato del día ✦
+        </p>
+    </div>
+
+    <main id="contenido">
+
+        <!-- ===== Portada con el mensaje de la "resurrección" ===== -->
+        <section class="portada" aria-labelledby="titulo-portada">
+            <div class="contenedor">
+                <div>
+                    <span class="etiqueta">Expediente #404 · El Millón</span>
+                    <h1 id="titulo-portada">
+                        <span class="glitch" data-texto="Nos borraron de internet.">Nos borraron de internet.</span><br>
+                        <span class="resaltado">Volvimos.</span>
+                    </h1>
+                    <p class="lead">Pueden borrar una página web, pero no 17 horas diarias de servicio al barrio. Colmado Melo 1 regresa más rápido, más seguro y más cerca de ti que nunca.</p>
+                    <div class="acciones">
+                        <a class="boton" href="servicios.html">Ver servicios reinventados →</a>
+                        <a class="boton secundario" href="#historia">Leer el expediente</a>
+                    </div>
+                </div>
+                <figure class="foto-recuperada">
+                    <img src="img/negocio-fachada.jpg" alt="Fachada roja del Colmado Melo 1 de noche, con su letrero, el teléfono 809-363-0033 y mesas afuera" width="1200" height="900">
+                    <figcaption><span>fachada_original.jpg</span><b>✔ RECUPERADA</b></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- ===== El mensaje del USB ===== -->
+        <section class="seccion alterna" aria-labelledby="titulo-usb">
+            <div class="contenedor">
+                <header class="revelar">
+                    <h2 id="titulo-usb">El mensaje del USB</h2>
+                    <p>Esto fue lo único que encontramos en la oficina la mañana después del borrado. Un USB sin marca, encima del mostrador, al lado de la caja de los chicles.</p>
+                </header>
+                <blockquote class="mensaje-usb revelar">
+                    <p>&gt; LEEME.txt</p>
+                    <p>"Tu negocio ha sido borrado de la existencia digital.</p>
+                    <p>Si quieres recuperarlo, deberás reinventarlo.</p>
+                    <p>Usa la tecnología, la creatividad y tu ingenio para traerlo de vuelta."<span class="cursor"></span></p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- ===== Línea de tiempo del incidente ===== -->
+        <section class="seccion" id="historia" aria-labelledby="titulo-historia">
+            <div class="contenedor">
+                <header class="revelar">
+                    <h2 id="titulo-historia">La historia del misterio</h2>
+                    <p>Así pasamos de no existir en internet a volver con más fuerza. Cada paso está documentado en el <a href="contacto.html#expediente">expediente del incidente</a>.</p>
+                </header>
+                <ol class="linea-tiempo">
+                    <li class="revelar">
+                        <time datetime="23:47">Noche del apagón · 11:47 p.m.</time>
+                        <h3>La señal se va</h3>
+                        <p>Cerramos como siempre a las 11:00 p.m. Cuarenta y siete minutos después, la página, el perfil de Instagram y la ficha del mapa dejaron de responder al mismo tiempo.</p>
+                    </li>
+                    <li class="revelar">
+                        <time datetime="06:00">Al día siguiente · 6:00 a.m.</time>
+                        <h3>"¿Ustedes cerraron?"</h3>
+                        <p>Los clientes del desayuno no nos encontraban en Google y pensaron que el colmado había cerrado. El teléfono no paró de sonar.</p>
+                    </li>
+                    <li class="revelar">
+                        <time datetime="08:15">8:15 a.m.</time>
+                        <h3>Aparece el USB</h3>
+                        <p>David, el encargado, encontró el USB con el mensaje. Nadie sabe quién lo dejó. Las cámaras solo grabaron estática.</p>
+                    </li>
+                    <li class="revelar">
+                        <time>Tres días después</time>
+                        <h3>Reinventarnos desde cero</h3>
+                        <p>Decidimos no copiar lo que teníamos, sino construir algo mejor: un catálogo con cotización en línea, un asistente que responde a cualquier hora y un sitio que funciona aunque se caiga la conexión.</p>
+                    </li>
+                    <li class="revelar">
+                        <time>Hoy</time>
+                        <h3>La resurrección</h3>
+                        <p>Estás leyendo la prueba. Colmado Melo 1 volvió a existir en internet, y esta vez con escudo.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ===== Por qué volvimos más fuertes ===== -->
+        <section class="seccion alterna" aria-labelledby="titulo-fuertes">
+            <div class="contenedor">
+                <header class="revelar">
+                    <h2 id="titulo-fuertes">Volvimos más fuertes</h2>
+                    <p>Cada función nueva responde a algo que nos pasó durante el borrado.</p>
+                </header>
+                <div class="rejilla">
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">📴</div>
+                        <h3>Funciona sin internet</h3>
+                        <p>Después de tu primera visita, la página queda guardada en tu teléfono. Si se cae la señal, igual puedes ver el horario y el catálogo.</p>
+                    </article>
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">🛡️</div>
+                        <h3>Verificador anti-estafas</h3>
+                        <p>¿Te escribió alguien diciendo ser el colmado? Compruébalo en segundos con nuestro verificador oficial.</p>
+                    </article>
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">🤖</div>
+                        <h3>Melo-Bot, 24/7</h3>
+                        <p>Nuestro asistente virtual responde horarios, precios, ubicación y delivery, incluso cuando el colmado está cerrado.</p>
+                    </article>
+                    <article class="tarjeta revelar">
+                        <div class="icono" aria-hidden="true">🧾</div>
+                        <h3>Cotiza antes de pedir</h3>
+                        <p>Arma tu compra en el catálogo, ve el total al momento y envíala por WhatsApp con un toque.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Galería: lo que no se puede borrar ===== -->
+        <section class="seccion" aria-labelledby="titulo-galeria">
+            <div class="contenedor">
+                <header class="revelar">
+                    <h2 id="titulo-galeria">Esto no lo borra nadie</h2>
+                    <p>Calle Biblioteca Nacional esquina Centro Olímpico, sector El Millón. Si nos ves, ya nos encontraste.</p>
+                </header>
+                <div class="galeria">
+                    <figure class="revelar">
+                        <img src="img/negocio-fachada.jpg" alt="Fachada del Colmado Melo 1 de noche con mesas afuera" width="1200" height="900" loading="lazy">
+                        <figcaption>La fachada roja, abierta hasta las 11:00 p.m.</figcaption>
+                    </figure>
+                    <figure class="revelar">
+                        <img src="img/negocio-interior.jpg" alt="Interior del colmado con estantes azules llenos de botellones de agua" width="663" height="1200" loading="lazy">
+                        <figcaption>Por dentro: agua, víveres y todo lo del día a día.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Manifiesto final ===== -->
+        <section class="seccion alterna" aria-labelledby="titulo-manifiesto">
+            <div class="contenedor revelar">
+                <h2 id="titulo-manifiesto" class="parpadeo">Mensaje para el que nos borró</h2>
+                <p class="lead">Gracias. Nos obligaste a hacer lo que llevábamos años posponiendo. Ahora el barrio nos encuentra más fácil, nos escribe más rápido y nos conoce mejor. <strong>Bórranos otra vez si puedes.</strong></p>
+                <div class="acciones">
+                    <a class="boton magenta" href="https://wa.me/18093630033" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+                    <a class="boton secundario" href="contacto.html#expediente">Ver las pruebas del incidente</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Pie de página ===== -->
+    <footer class="pie">
+        <div class="contenedor">
+            <div>
+                <p><strong>Colmado Melo 1</strong></p>
+                <p>Calle Biblioteca Nacional esq. Centro Olímpico, El Millón, Santo Domingo.</p>
+            </div>
+            <div>
+                <p><strong>Horario</strong></p>
+                <p>Todos los días, 6:00 a.m. – 11:00 p.m.</p>
+            </div>
+            <div>
+                <p><strong>Contacto</strong></p>
+                <p><a href="tel:+18093630033">809-363-0033</a> · <a href="https://wa.me/18093630033" target="_blank" rel="noopener">WhatsApp</a></p>
+            </div>
+            <p class="creditos">Reto "Hackeando el futuro de una pyme" · Programación 3, UASD · Jose Peña (DE0659) ·
+                <button class="enlace-boton" type="button" data-repetir-incidente>Ver el incidente otra vez</button>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "Colmado Melo 1 — Reiniciado",
+  "short_name": "Melo 1",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff6e9",
+  "theme_color": "#ff2e88",
+  "lang": "es-DO",
+  "icons": [{ "src": "img/logo.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
